@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/GAMECSS.css">
+
+    <script src="JS/main.js" defer></script>
+</head>
+<body>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('beforeend', data);
+            });
+    </script>
+
+    <main>
+        <h1>Elements 1-5</h1>
+        <p>Explore the following links:</p>
+
+        <!-- Image and text placeholders with links -->
+        <a href="/element01.html">
+            <div>
+                <img src="image1.jpg" alt="/element01.html">
+                <p>Element01</p>
+            </div>
+        </a>
+
+        <a href="element02.html">
+            <div>
+                <img src="image2.jpg" alt="Image 2">
+                <p>Text for Image 2</p>
+            </div>
+        </a>
+
+        <a href="element03.html">
+            <div>
+                <img src="image3.jpg" alt="Image 3">
+                <p>Text for Image 3</p>
+            </div>
+        </a>
+
+        <a href="element04.html">
+            <div>
+                <img src="image4.jpg" alt="Image 4">
+                <p>Text for Image 4</p>
+            </div>
+        </a>
+
+        <a href="element05.html">
+            <div>
+                <img src="image5.jpg" alt="Image 5">
+                <p>Text for Image 5</p>
+            </div>
+        </a>
+    </main>
+</body>
+</html>

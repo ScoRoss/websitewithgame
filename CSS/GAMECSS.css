@@ -3,6 +3,7 @@ body, h1, p {
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: #f3eded; /* Replace with your desired background color */
 }
@@ -95,5 +96,20 @@ main {
     padding: 20px;
 }
 
+/* Additional styling for the images and text */
+main div {
+    border: 2px solid #333; /* Border color */
+    padding: 10px; /* Add padding around each image and text */
+    margin: 10px; /* Add margin between each div */
+    border-radius: 8px; /* Rounded corners for a nicer look */
+}
 
+main img {
+    max-width: 100%;
+    height: auto;
+}
 
+main p {
+    margin: 10px 0;
+    font-weight: bold;
+}
