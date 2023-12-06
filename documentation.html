@@ -4,66 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
+    <style>
+        body {
+            background-color: #f4f4f4; /* Replace with your desired background color */
+            font-family: Arial, sans-serif; /* Optional: Set a font family */
+            line-height: 1.6; /* Optional: Set line height for better readability */
+            margin: 0; /* Optional: Remove default margin */
+            padding: 20px; /* Optional: Add padding for better spacing */
+        }
+
+        main {
+            max-width: 800px; /* Optional: Set maximum width for main content */
+            margin: 0 auto; /* Optional: Center main content */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked@3.0.0/marked.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/CSS/GAMECSS.css">
 </head>
 <body>
-    <body>
-        <script>
-            // Include the header
-            fetch('header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.querySelector('body').insertAdjacentHTML('afterbegin', data);
-                });
-    
-            // Include the footer
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.querySelector('body').insertAdjacentHTML('beforeend', data);
-                });
-        </script>
-    
-        <main>
-            <h1>Welcome to My Website</h1>
-            <p>Explore the following links:</p>
-        </main>
-    </body>
-    </html>
-    
+    <script>
+        // Include the header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('afterbegin', data);
+            });
 
-    <h1>Documentation</h1>
+        // Include the footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('body').insertAdjacentHTML('beforeend', data);
+            });
 
-    <h2>Introduction</h2>
-    <p>Provide an introductory overview of your website and its purpose.</p>
+        // Fetch and convert the GitHub Markdown content
+        fetch('https://raw.githubusercontent.com/ScoRoss/babylonJSdev2/main/babylonProj/DOCUMENTATION.md')
+            .then(response => response.text())
+            .then(markdownContent => {
+                // Ensure there is a <main> element
+                const mainElement = document.querySelector('main') || document.createElement('main');
+                
+                // Use marked to render GitHub Markdown to HTML
+                mainElement.innerHTML = marked(markdownContent);
 
-    <h2>Navigation</h2>
-    <p>Explain how users can navigate through your website, including links and buttons.</p>
-
-    <h2>Home Page</h2>
-    <p>A simple page to navigate the website .</p>
-
-    <h2>Game Page</h2>
-    <p>Iin the game page you will play the game ive made, this is a work in progress so please dont flip it out .</p>
-
-    <h2>Customization Options</h2>
-    <p>YOU WILL PLAY WHAT I GIVE YOU SON.</p>
-
-    <h2>Technical Requirements</h2>
-    <p>List any technical requirements, That would be a potato.</p>
-
-    <h2>FAQ</h2>
-    <p>FAQ HERE.</p>
-
-    <h2>Contact Us</h2>
-    <p>Provide contact information or a contact form for users who need assistance or have inquiries.</p>
-
-    <h2>Feedback</h2>
-    <p>Encourage users to provide feedback or suggestions for improvement.</p>
-
-    <h2>Conclusion</h2>
-    <p>Summarize the key points and thank users for visiting your website.</p>
-
-
+                // Append the main element to the body
+                document.querySelector('body').appendChild(mainElement);
+            });
+    </script>
 </body>
 </html>
